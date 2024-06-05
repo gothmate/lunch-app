@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/app/page.module.sass'
-import Image from 'next/image'
+import LogoFrame from '@/components/LogoFrame'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -22,27 +22,18 @@ export default function Login() {
 
     return (
         <div className={styles.main}>
-            <div className={styles.logoContent}>
-                <Image
-                    id={styles.logo}
-                    width={500}
-                    height={500}
-                    src={'./logo.svg'}
-                    alt='Logo'
-                    priority
-                />
-            </div>
+            <LogoFrame />
             <aside className={styles.aside}>
                 <form action="submit" className={styles.formGroup}>
                     <input type="text" className={styles.input} placeholder='Usuário' name='username' />
                     <input type={show} className={styles.input} placeholder='Senha' name='password' />
                     <input type="button" className={styles.btn} value='Entrar' name='submit' />
                     <div className={styles.linkGroup}>
-                        <Link className={styles.link} href='/'>Criar uma conta</Link>
-                        <Link className={styles.link} href='/'>Esqueci minha senha</Link>
+                        <Link className={`${styles.link} ${styles.label}`} href='/signup'>Criar uma conta</Link>
+                        <Link className={`${styles.link} ${styles.label}`} href='/'>Esqueci minha senha</Link>
                     </div>
                     <div>
-                        <input type="checkbox" onClick={handleShow} /><label> Mostrar senha</label>
+                        <input type="checkbox" onClick={handleShow} /><label className={styles.label}> Mostrar senha</label>
                     </div>
                 </form>
             </aside>

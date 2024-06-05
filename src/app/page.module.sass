@@ -5,7 +5,7 @@
   display: flex
   justify-content: space-between
   align-items: center
-  min-height: 100vh
+  height: 100vh
 
 .logoContent
   width: 65%
@@ -24,6 +24,9 @@
   justify-content: center
   align-items: center
   gap: 30px
+
+.label
+  color: variables.$secondary-color
 
 .input
   border-radius: 5px
@@ -46,15 +49,18 @@
     box-shadow: 2px 2px 5px #3b0e0e
   &:active
     box-shadow: inset 2px 2px 10px #3b0e0e
-    
 
 .formGroup
   display: flex
   flex-direction: column
   justify-content: center
+  min-width: 60%
   margin: auto
   gap: 1rem
-  width: 50%
+
+.doubleInput
+  display: flex
+  gap: 1rem
 
 .linkGroup
   display: flex
@@ -69,17 +75,23 @@
     display: flex
     justify-content: center
     width: 100%
+    max-height: 100vh
   .formGroup
     width: 80%
+  .doubleInput
+    display: flex
+    flex-direction: column
+    gap: 1rem
   .logoContent
+    overflow: hidden
     width: 100vw
-    height: 100vh
+    height: 20%
     position: absolute
     background: none
-    top: 0
+    bottom: 0
     left: 0
     & #logo
       position: absolute
-      top: 65%
+      top: -100%
       right: 0
       width: 50%
