@@ -3,6 +3,7 @@
 import LogoFrame from "@/components/LogoFrame"
 import styles from '@/app/page.module.sass'
 import { ChangeEvent, useState } from "react";
+import Link from "next/link";
 
 export default function SignUp() {
 
@@ -59,6 +60,9 @@ export default function SignUp() {
                     </div>
                     <div>
                         <input type="checkbox" onClick={handleAdmin} /><label className={styles.label}> Marcar se o Usuário for um admin</label>
+                    </div>
+                    <div className={styles.linkGroup}>
+                        <Link className={`${styles.link} ${styles.label}`} href='/login'>Voltar</Link>
                     </div>
                 </form>
             </aside>
