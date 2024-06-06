@@ -30,7 +30,7 @@ export default function Login() {
                     <input type="button" className={styles.btn} value='Entrar' name='submit' />
                     <div className={styles.linkGroup}>
                         <Link className={`${styles.link} ${styles.label}`} href='/signup'>Criar uma conta</Link>
-                        <Link className={`${styles.link} ${styles.label}`} href='/'>Esqueci minha senha</Link>
+                        <Link className={`${styles.link} ${styles.label}`} href='/remember'>Esqueci minha senha</Link>
                     </div>
                     <div>
                         <input type="checkbox" onClick={handleShow} /><label className={styles.label}> Mostrar senha</label>
