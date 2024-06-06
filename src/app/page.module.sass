@@ -17,6 +17,13 @@
   & #logo
     display: block
 
+.content
+  background: variables.$primary-color
+  min-height: 100vh
+  width: 70%
+  padding-inline: 40px
+  padding-top: 126px 
+
 .aside
   min-height: 100vh
   width: 35%
@@ -69,6 +76,31 @@
   & .link
     &:hover
       text-shadow: 1px 1px 0px variables.$secondary-color
+
+.list
+  display: flex
+  gap: 1rem
+  padding-bottom: 2rem 
+  & li 
+    list-style: none
+
+.cardsGroup
+  display: flex
+  flex-direction: column
+  gap: 20px
+.cards
+  display: flex
+  gap: 1rem
+  max-width: 60%
+  & .img
+    border-radius: 10px
+  & .infoGroup
+    display: flex
+    gap: 0.5rem
+    height: 100%
+    flex-direction: column
+    justify-content: flex-start
+    color: variables.$secondary-color
 
 @media (max-width: 1300px) 
   .aside
