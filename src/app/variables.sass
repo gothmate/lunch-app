@@ -2,3 +2,17 @@ $primary-color: #F6F6EA
 $secondary-color: #6A162A
 $tertiary-color: #D1D1D1
 $logo: #DDCFB5
+
+@mixin scrollbar
+    &::-webkit-scrollbar 
+        width: 0.5rem
+    &::-webkit-scrollbar-track
+        margin-block: 10rem
+        border-radius: 50em
+        background: radial-gradient(circle, $tertiary-color, $tertiary-color, #ffffff00)
+    &::-webkit-scrollbar-thumb
+        border-radius: 50em
+        cursor: pointer
+        background: $secondary-color
+    &::-webkit-scrollbar-track-piece
+        background: linear-gradient(center, $tertiary-color, #ffffff00)
