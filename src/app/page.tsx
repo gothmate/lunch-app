@@ -1,16 +1,22 @@
 'use client'
 
-import { useContext } from "react";
-import styles from "./page.module.sass";
-import Login from "./login/page";
-import SessionContext from "../contexts/sessionContext";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Link from "next/link";
-import Image from "next/image";
+import { useContext } from "react"
+import styles from "./page.module.sass"
+import Login from "./login/page"
+import SessionContext from "../contexts/sessionContext"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function Home() {
   const session = useContext(SessionContext)
+
+  const list = [
+    { id: 1 , link: '/', linkName: 'Pratos' },
+    { id: 2 , link: '/', linkName: 'Bebidas' },
+    { id: 3 , link: '/', linkName: 'Sobremesas' }
+  ]
   
   return (
     <SessionContext.Provider value={session}>
@@ -23,15 +29,11 @@ export default function Home() {
                 <div className={styles.navCart}>
                   <nav>
                     <ul className={styles.list}>
-                      <li>
-                        <Link href={'/'}>Pratos</Link>
-                      </li>
-                      <li>
-                        <Link href={'/'}>Bebidas</Link>
-                      </li>
-                      <li>
-                        <Link href={'/'}>Sobremesas</Link>
-                      </li>
+                      {list.map(el => (
+                        <li key={el.id}>
+                          <Link href={el.link}>{el.linkName}</Link>
+                        </li>
+                      ))}
                     </ul>
                   </nav>
                   <Image
@@ -175,5 +177,5 @@ export default function Home() {
         <Login />
       }
     </SessionContext.Provider>
-  );
+  )
 }
