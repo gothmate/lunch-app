@@ -1,5 +1,6 @@
 import Image from "next/image";
 import style from './page.module.sass'
+import Link from "next/link";
 
 export default function Header() {
     return (
@@ -13,6 +14,13 @@ export default function Header() {
                     priority
                 />
                 <nav className={style.nav}>
+                    <ul>
+                        <li>
+                            <Link className={style.link} href={'/editar_pratos'}>
+                                Settings
+                            </Link>
+                        </li>
+                    </ul>
                     <Image
                         width={50}
                         height={50}

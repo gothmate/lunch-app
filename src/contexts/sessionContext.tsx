@@ -1,11 +1,11 @@
-import { createContext } from 'react';
+import { createContext } from 'react'
 
 interface isLoggedIn {
-	isLogged: boolean;
-	name: string;
-    username: string;
-	email: string;
-	admin: boolean;
+	isLogged: boolean
+	name: string
+    username: string
+	email: string
+	admin: boolean
 }
 
 const initialSession: isLoggedIn = {
@@ -14,8 +14,8 @@ const initialSession: isLoggedIn = {
 	username: '',
 	email: '',
 	admin: false
-};
+}
 
-const SessionContext = createContext<isLoggedIn>(initialSession);
+const SessionContext = createContext<isLoggedIn>(initialSession)
 
-export default SessionContext;
+export default SessionContext
