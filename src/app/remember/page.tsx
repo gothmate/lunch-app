@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Remember() {
     return (
-        <div className={styles.main}>
+        <>
             <LogoFrame />
             <aside className={styles.aside}>
                 <form action="submit" className={styles.formGroup}>
@@ -15,6 +15,6 @@ export default function Remember() {
                     </div>
                 </form>
             </aside>
-        </div>
+        </>
     )
 }

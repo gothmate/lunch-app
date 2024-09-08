@@ -42,7 +42,7 @@ export default function SignUp() {
     }
 
     return (
-        <div className={styles.main}>
+        <>
             <aside className={styles.aside}>
                 <form action="submit" className={styles.formGroup}>
                     <input type="text" className={styles.input} placeholder='Nome Completo' name='name' onChange={e => handleName(e)} />
@@ -67,6 +67,6 @@ export default function SignUp() {
                 </form>
             </aside>
             <LogoFrame />
-        </div>
+        </>
     )
 }
