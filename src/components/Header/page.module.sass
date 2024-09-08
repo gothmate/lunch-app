@@ -13,3 +13,18 @@
 
 .nav
     padding-inline: 2rem 
+    display: flex
+    justify-content: center
+    align-items: center
+    gap: 3rem
+    & ul 
+        display: flex
+        & li
+            list-style: none
+    .link
+        color: variables.$primary-color
+        &:hover
+            cursor: pointer
+            text-decoration: underline
+            filter: brightness(0.9)
+
