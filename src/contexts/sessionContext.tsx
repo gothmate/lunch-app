@@ -1,20 +1,14 @@
 'use client'
+import { isLoggedIn } from '@/types/types'
 import { createContext } from 'react'
-
-interface isLoggedIn {
-	isLogged: boolean
-	name: string
-  username: string
-	email: string
-	admin: boolean
-}
 
 const initialSession: isLoggedIn = {
 	isLogged: false,
 	name: '',
 	username: '',
 	email: '',
-	admin: false
+	admin: false,
+	funcionario: true
 }
 
 const SessionContext = createContext<isLoggedIn>(initialSession)

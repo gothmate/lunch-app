@@ -36,14 +36,13 @@
   width: 100%
 
 .aside
-  min-height: 100vh
+  height: 100vh
   width: 35%
   display: flex
   justify-content: center
   align-items: center
   gap: 30px
   
-
 .label
   color: variables.$secondary-color
 
@@ -100,28 +99,6 @@
   z-index: -1
   position: relative
   color: variables.$secondary-color
-  & .math
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    gap: 1rem
-    top: 126px
-    left: 40px
-    width: calc(100% - 80px)
-    height: calc(100% - 200px)
-    position: absolute
-    & ul
-      margin-left: 3rem
-    & p 
-      font-weight: 600
-      font-size: 1.2rem
-      text-align: right
-  & .valorFinal
-    display: flex
-    width: 100%
-    justify-content: space-between
-    font-size: 2rem
-    font-weight: 600
 
 .cardsGroup
   position: relative
@@ -163,6 +140,14 @@
 .cart
   display: none
 
+.loading
+  display: grid
+  place-content: center
+  z-index: 200
+  width: auto
+  height: auto
+  font-size: 1.5rem
+  color: variables.$secondary-color
 
 @media (max-width: 1300px) 
   .main

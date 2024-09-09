@@ -1,178 +1,93 @@
 'use client'
 import Login from "@/app/login/page"
-import Footer from "@/components/Footer"
-import Header from "@/components/Header"
 import SessionContext from "@/contexts/sessionContext"
-import Image from "next/image"
-import Link from "next/link"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import styles from '@/app/page.module.sass'
+import Cart from "@/components/Cart"
+import { IPratos } from "@/types/types"
+import { getPratos } from "@/api/gets"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function Home() {
     const session = useContext(SessionContext)
+
+		const [pratos, setPratos] = useState<IPratos[]>([] as any)
+
+		async function fetchPratos() {
+			try {
+				const data: any = await getPratos()
+				if(!data.msg) {
+					setPratos(JSON.parse(data))
+					return
+				}
+				alert(data.msg)
+			} catch (error) {
+				console.error('Erro ao buscar pratos:', error)
+			}
+		}
+
+		useEffect(() => {
+			fetchPratos()
+		}, [])
+
   
   return (
-    <SessionContext.Provider value={session}>
-      {!session.isLogged ?
-        <>
-          <Header />
-          <main className={styles.main}>
-            <div className={styles.content}>
-                <h5>Chamado #0001452</h5>
-                <div className={styles.navCart}>
-                  <nav>
-                    <ul className={styles.list}>
-                      <li>
-                        <Link href={'/'}>Pratos</Link>
-                      </li>
-                      <li>
-                        <Link href={'/'}>Bebidas</Link>
-                      </li>
-                      <li>
-                        <Link href={'/'}>Sobremesas</Link>
-                      </li>
-                    </ul>
-                  </nav>
-                  <Image
-                    className={styles.cart} 
-                    width={30}
-                    height={30}
-                    src={'/cart.svg'}
-                    alt="Carrinho"
-                  />
-                </div>
-                <div className={styles.cardsGroup}>
-                  <div className={styles.cards}>
-                    <Image 
-                      className={styles.img}
-                      width={300}
-                      height={130}
-                      src={'/img.png'}
-                      alt='comida'
-                      priority
-                    />
-                    <div className={styles.infoGroup}>
-                      <h3>Nome do Prato</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam illum reprehenderit nesciunt facere beatae blanditiis quos distinctio sint?</p>
-                    </div>
-                  </div>
-                  <div className={styles.cards}>
-                    <Image 
-                      className={styles.img}
-                      width={300}
-                      height={130}
-                      src={'/img.png'}
-                      alt='comida'
-                      priority
-                    />
-                    <div className={styles.infoGroup}>
-                      <h3>Nome do Prato</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam illum reprehenderit nesciunt facere beatae blanditiis quos distinctio sint?</p>
-                    </div>
-                  </div>
-                  <div className={styles.cards}>
-                    <Image 
-                      className={styles.img}
-                      width={300}
-                      height={130}
-                      src={'/img.png'}
-                      alt='comida'
-                      priority
-                    />
-                    <div className={styles.infoGroup}>
-                      <h3>Nome do Prato</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam illum reprehenderit nesciunt facere beatae blanditiis quos distinctio sint?</p>
-                    </div>
-                  </div>
-                  <div className={styles.cards}>
-                    <Image 
-                      className={styles.img}
-                      width={300}
-                      height={130}
-                      src={'/img.png'}
-                      alt='comida'
-                      priority
-                    />
-                    <div className={styles.infoGroup}>
-                      <h3>Nome do Prato</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam illum reprehenderit nesciunt facere beatae blanditiis quos distinctio sint?</p>
-                    </div>
-                  </div>
-                  <div className={styles.cards}>
-                    <Image 
-                      className={styles.img}
-                      width={300}
-                      height={130}
-                      src={'/img.png'}
-                      alt='comida'
-                      priority
-                    />
-                    <div className={styles.infoGroup}>
-                      <h3>Nome do Prato</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam illum reprehenderit nesciunt facere beatae blanditiis quos distinctio sint?</p>
-                    </div>
-                  </div>
-                  <div className={styles.cards}>
-                    <Image 
-                      className={styles.img}
-                      width={300}
-                      height={130}
-                      src={'/img.png'}
-                      alt='comida'
-                      priority
-                    />
-                    <div className={styles.infoGroup}>
-                      <h3>Nome do Prato</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae veniam illum reprehenderit nesciunt facere beatae blanditiis quos distinctio sint?</p>
-                    </div>
-                  </div>
-                  <div className={styles.curtains}>.</div>
-                </div>
-            </div> 
-            <aside className={styles.aside} id={styles.asideHome}>
-              <div className={styles.math}>
-                <div>
-                  <h1>Total</h1>
-                  <div>
-                    <h4>Frango Xadrez</h4>
-                    <ul>
-                      <li>Arroz</li>
-                      <li>Feijão</li>
-                      <li>Farofa</li>
-                      <li>Fritas</li>
-                      <li>Salada de Alface</li>
-                    </ul>
-                    <p>Valor R$16,00</p>
-                  </div>
-                  <div>
-                    <h4>Filé de Alcatra</h4>
-                    <ul>
-                      <li>Arroz</li>
-                      <li>Feijão</li>
-                      <li>Farofa</li>
-                      <li>Fritas</li>
-                      <li>Salada de Legumes</li>
-                    </ul>
-                    <p>Valor R$18,00</p>
-                  </div>
-                </div>
-                <div className={styles.valorFinal}>
-                  <Image
-                    width={30}
-                    height={30}
-                    src={'/cart.svg'}
-                    alt="Carrinho"
-                  /> 
-                  Valor: R$34,00
-                </div>
-              </div>
-            </aside>
-          </main>
-          <Footer />
-        </>
-        :
-        <Login />
-      }
-    </SessionContext.Provider>
-  )
+		<SessionContext.Provider value={session}>
+			{!session.isLogged ? (
+				<>
+					<div className={styles.content}>
+						<div className={styles.navCart}>
+							<nav>
+								<ul className={styles.list}>
+									<li>
+										<Link href={'/'}>Pratos</Link>
+									</li>
+									<li>
+										<Link href={'/'}>Bebidas</Link>
+									</li>
+									<li>
+										<Link href={'/'}>Sobremesas</Link>
+									</li>
+								</ul>
+							</nav>
+							<Image
+								className={styles.cart}
+								width={30}
+								height={30}
+								src={'/cart.svg'}
+								alt='Carrinho'
+							/>
+						</div>
+						<div className={styles.cardsGroup}>
+							{pratos.length === 0 ? <div className={styles.loading}>Loading ...</div> 
+								: (pratos.map((el) => (
+									<div key={el.idprato} className={styles.cards}>
+										<Image
+											className={styles.img}
+											width={300}
+											height={130}
+											src={'/img.png'}
+											alt={el.name}
+											priority
+										/>
+										<div className={styles.infoGroup}>
+											<h3>{el.name}</h3>
+											<p>{el.description}</p>
+										</div>
+									</div>
+								)))
+							}
+							<div className={styles.curtains}>.</div>
+						</div>
+					</div>
+					<aside className={styles.aside} id={styles.asideHome}>
+						<Cart />
+					</aside>
+				</>
+			) : (
+				<Login />
+			)}
+		</SessionContext.Provider>
+	);
 }
