@@ -17,17 +17,6 @@ export default function Cart() {
 					</ul>
 					<p>Valor R$16,00</p>
 				</div>
-				<div>
-					<h4>Filé de Alcatra</h4>
-					<ul>
-						<li>Arroz</li>
-						<li>Feijão</li>
-						<li>Farofa</li>
-						<li>Fritas</li>
-						<li>Salada de Legumes</li>
-					</ul>
-					<p>Valor R$18,00</p>
-				</div>
 			</div>
 			<div className={style.valorFinal}>
 				<Image width={30} height={30} src={'/cart.svg'} alt='Carrinho' />

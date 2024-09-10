@@ -14,9 +14,17 @@ export interface IPratos {
   price: number
   promo: boolean
   promoprice: number
+  image?: string
 }
 
 export interface IIngredients {
   idingredient: number
   name_ingredient: string
+}
+
+export interface ITicket {
+  id_ticket?: number
+  value: number
+  date: Date
+  items: string
 }
